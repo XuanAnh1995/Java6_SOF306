@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body ng-app="app" ng-controller="ctrl">
+    <h2>RESTFUL Consumer - AngularJS</h2>
+    <!--Form-->
+    <div>
+        <input ng-model="form.fullname" placeholder="Fullname ?" /> <br />
+
+        <input ng-model="form.gender" ng-value="true" type="radio" /> Male
+        <input ng-model="form.gender" ng-value="false" type="radio" /> Female
+        <br />
+
+        <input ng-model="form.marks" placeholder="Marks ?" /> <br />
+        <input ng-model="form.email" placeholder="Email Address ?" /> <br />
+
+        <select ng-model="form.country">
+            <option value="VN">Việt Nam</option>
+            <option value="USA">United Stated</option>
+        </select>
+
+        <hr />
+
+        <button ng-click="create()">Create</button>
+        <button ng-click="update()">Update</button>
+        <button ng-click="delete(key)">Delete</button>
+        <button ng-click="reset()">Reset</button>
+    </div>
+    <p>
+        <!--Table-->
+    </p>
+
+    <table border="1" style="width: 100%">
+        <tr>
+            <th>Fullname</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Marks</th>
+            <th>Country</th>
+        </tr>
+        <tr ng-repeat="(key, student) in items">
+            <td>{{student.fullname}}</td>
+            <td>{{student.gender ? 'Male' : 'Female'}}</td>
+            <td>{{student.marks}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.country}}</td>
+            <td slot="2">
+                <button ng-click="edit(key)">Edit</button>
+                <button ng-click="delete(key)">Del</button>
+            </td>
+        </tr>
+    </table>
+    <script src="demo-ctrl.js"></script>
+</body>
+
+</html>

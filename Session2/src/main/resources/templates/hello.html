@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Wellcome to Thymeleaf</h1>
+    <ul>
+        <!-- `th:text` sẽ hiển thị nội dung dạng chuỗi -->
+        <li th:text="${message}"></li>
+
+        <!-- `th:utext` sẽ hiển thị nội dung dạng HTML -->
+        <li th:utext="${message}"></li>
+    </ul>
+
+    <ul>
+        <li>[[${message}]]</li>
+        <li>[(${message})]</li>
+    </ul>
+</body>
+</html>

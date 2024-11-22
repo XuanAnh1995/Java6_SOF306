@@ -1,0 +1,13 @@
+{
+  "gender": true,
+  "contact": {
+    "phone": "0988876543",
+    "email": "dungnv29@fpt.edu.vn"
+  },
+  "subjects": [
+    "WEB3034",
+    "WEB3021"
+  ],
+  "name": "Nguyễn Văn Dũng",
+  "marks": 10
+}

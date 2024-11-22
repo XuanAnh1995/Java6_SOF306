@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" >
+    <title>Title</title>
+</head>
+<body>
+    <img th:src="@{/images/FPT_Polytechnic.png}" style="height: 80px">
+    <nav th:replace="~{/layout/menu.html}"></nav>
+    <h1 th:text="${message}"></h1>
+
+    <ul th:object="${sv}">
+        <li th:text="${sv.name}"></li>
+        <li th:text="${sv.gender ? 'Nam' : 'Nữ'}"></li>
+        <li th:text="*{marks}"></li>
+        <li th:text="*{contact.email}"></li>
+    </ul>
+</body>
+</html>
