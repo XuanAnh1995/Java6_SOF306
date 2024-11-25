@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+
+<body class="container">
+    <h3>Restful - File Manager</h3>
+    <div ng-app="app" ng-controller="ctrl">
+        <label>
+            Upload File:
+            <input type="file" accept="image/*" multiple onchange="angular.element(this).scope().upload(this.files)">
+        </label>
+        <hr>
+        <label ng-repeat="filename in filenames" title="Double click to delete">
+            <img ng-src="{{url(filename)}}" ng-dblclick="delete(file)">
+        </label>
+    </div>
+    <script src="file-ctrl.js"></script>
+</body>
+
+</html>
