@@ -71,9 +71,9 @@ public class AuthConfig {
 
                 // Phân quyền truy cập các đường dẫn
                 .authorizeHttpRequests(auth -> auth
-//                        .requestMatchers("/home/admins").hasRole("ADMIN") // Chỉ quyền ADMIN được truy cập
-//                        .requestMatchers("/home/users").hasAnyRole("ADMIN", "USER") // ADMIN và USER được truy cập
-//                        .requestMatchers("/home/authenticated").authenticated() // Bắt buộc phải đăng nhập
+                        .requestMatchers("/home/admins").hasRole("ADMIN") // Chỉ quyền ADMIN được truy cập
+                        .requestMatchers("/home/users").hasAnyRole("ADMIN", "USER") // ADMIN và USER được truy cập
+                        .requestMatchers("/home/authenticated").authenticated() // Bắt buộc phải đăng nhập
                         .anyRequest().permitAll() // Các đường dẫn khác không yêu cầu đăng nhập
                 )
                 // Xử lý lỗi khi truy cập đường dẫn không đúng vai trò
