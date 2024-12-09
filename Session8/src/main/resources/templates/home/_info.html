@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div th:fragment="main">
+        <h3 th:unless="${#authentication != null}">
+            <i style="color: red">Chưa đăng nhập</i>
+        </h3>
+        <th:block th:if="${#authentication != null}">
+            <h3 style="color: blue">Authentication Information</h3>
+            <ul>
+                <li>Username: <b>[[${#authentication.name}]]</b></li>
+                <!-- Vai trò người dùng -->
+                <li>Authorities:
+                    <span th:each="authority : ${#authentication.authorities}" th:text="${authority.authority}"></span>
+                </li>
+                <!-- Kiểm tra vai trò ADMIN -->
+                <li>Is Admin?
+                    <b th:text="${#authentication.authorities.?[authority == 'ROLE_ADMIN'].size() > 0 ? 'Yes' : 'No'}"></b>
+                </li>
+
+                <!-- Kiểm tra vai trò USER -->
+                <li>Is User?
+                    <b th:text="${#authentication.authorities.?[authority == 'ROLE_USER'].size() > 0 ? 'Yes' : 'No'}"></b>
+                </li>
+
+                <!-- Kiểm tra vai trò GUEST -->
+                <li>Is Guest?
+                    <b th:text="${#authentication.authorities.?[authority == 'ROLE_GUEST'].size() > 0 ? 'Yes' : 'No'}"></b>
+                </li>
+            </ul>
+        </th:block>
+    </div>
+
+</body>
+</html>

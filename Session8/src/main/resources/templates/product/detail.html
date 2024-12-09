@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{:: main})}">
+
+<body>
+    <main th:object="${item}" class="poly-item-detail container py-5">
+        <div class="row">
+            <!-- Phần hình ảnh sản phẩm -->
+            <div class="col-md-6 text-center">
+                <div class="panel panel-primary shadow-sm rounded p-3">
+                    <div class="panel-body">
+                        <img th:src="@{|/assets/images/*{image}|}" class="img-fluid rounded" alt="Product Image">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thông tin sản phẩm -->
+            <div class="col-md-6">
+                <div class="panel panel-primary shadow-sm rounded p-3">
+                    <div class="panel-body">
+                        <h3 class="text-primary" th:text="*{name}">Product Name</h3>
+                        <p class="text-success h4" th:text="'$ ' + *{price}">$0.00</p>
+                        <p><strong>Ngày tạo:</strong> <span th:text="*{createDate}">N/A</span></p>
+                        <p><strong>Tình trạng:</strong>
+                            <span th:text="*{available} ? 'Còn hàng' : 'Hết hàng'">Còn hàng</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Danh sách hàng cùng loại -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="panel panel-primary shadow-sm rounded">
+                    <div class="panel-heading bg-primary text-white py-2 px-3 rounded-top">
+                        <h4 class="mb-0">Hàng Cùng Loại</h4>
+                    </div>
+                    <div class="panel-body p-3">
+                        <ul class="list-unstyled d-flex flex-wrap">
+                            <li th:each="p : *{category.products}" class="me-3 mb-3">
+                                <a th:href="@{|/product/detail/${p.id}}|" class="text-decoration-none text-dark">
+                                    <div class="card shadow-sm" style="width: 150px;">
+                                        <img th:src="@{|/assets/images/${p.image}|}"
+                                            class="card-img-top img-fluid rounded" alt="Product Image">
+                                        <div class="card-body p-2 text-center">
+                                            <p th:text="${p.name}" class="small mb-0">Product Name</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

@@ -13,7 +13,7 @@ GO
 
 CREATE TABLE accounts(
 	username VARCHAR(20) NOT NULL,
-	passwword NVARCHAR(100) NOT NULL,
+	[password] NVARCHAR(100) NOT NULL,
 	fullname NVARCHAR(50) NOT NULL,
 	email NVARCHAR(50) NOT NULL,
 	photo NVARCHAR(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE authorities(
 )
 GO
 
-INSERT INTO accounts(username, passwword, fullname, email, photo)
+INSERT INTO accounts(username, [password], fullname, email, photo)
 VALUES ('user1', '123', N'Nguyễn Văn A', 'nguyenvana@gmail.com', 'anh1.jpg'),
 		('user2', '123', N'Nguyễn Văn B', 'nguyenvanb@gmail.com', 'anh2.jpg'),
 		('user3', '123', N'Nguyễn Văn C', 'nguyenvanc@gmail.com', 'anh3.jpg'),
