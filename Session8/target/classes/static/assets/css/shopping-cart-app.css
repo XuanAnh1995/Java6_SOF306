@@ -1,0 +1,57 @@
+.poly-item img {
+    height: 250px; /* Đảm bảo tất cả ảnh có chiều cao bằng nhau */
+    width: 100%; /* Đảm bảo ảnh chiếm toàn bộ chiều rộng của khung */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo và vẫn giữ được tỷ lệ */
+    border-radius: 5px; /* Bo tròn góc ảnh */
+    display: block; /* Loại bỏ khoảng trắng phía dưới ảnh */
+}
+
+.poly-item .panel-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.panel-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+    padding: 10px; /* Thêm padding để tạo không gian giữa các phần */
+}
+
+.panel-footer .text-success {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.btn {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #28a745; /* Màu xanh cho nút */
+    border: none; /* Bỏ viền nút */
+    color: #fff; /* Màu chữ trắng */
+}
+
+.panel {
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff; /* Đảm bảo màu nền trắng cho mỗi panel */
+    transition: transform 0.2s ease-in-out; /* Thêm hiệu ứng hover */
+}
+
+.panel:hover {
+    transform: scale(1.05); /* Hiệu ứng phóng to khi hover */
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.shadow-sm:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 3px 6px rgba(0, 0, 0, 0.16);
+}

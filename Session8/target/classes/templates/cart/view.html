@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{:: main})}">
+
+<body>
+    <main>
+        <div class="container mt-5">
+            <div class="card shadow-lg">
+                <!-- Card header -->
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Shopping Cart</h4>
+                </div>
+
+                <!-- Card body chứa bảng sản phẩm -->
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="item in cart.items">
+                                <td>{{item.id}}</td>
+                                <td>{{item.name}}</td>
+                                <td>${{item.price | number:2}}</td>
+                                <td>
+                                    <input ng-change="cart.saveToLocalStorage()" ng-model="item.qty" type="number"
+                                        min="1" class="form-control" style="width: 70px;">
+                                </td>
+                                <td>${{item.qty * item.price | number:2}}</td>
+                                <td>
+                                    <button ng-click="cart.remove(item.id)" class="btn btn-sm btn-danger">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card footer chứa các nút Clear và Checkout -->
+                <div class="card-footer">
+                    <div class="d-flex justify-content-between gap-2">
+                        <!-- Clear Cart Button -->
+                        <button ng-click="cart.clear()" class="btn btn-danger btn-square">
+                            <i class="bi bi-trash"></i> Clear Cart
+                        </button>
+
+                        <!-- Checkout Button -->
+                        <a th:href="@{/order/checkout}" class="btn btn-info btn-square">
+                            <i class="bi bi-arrow-right-circle"></i> Checkout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

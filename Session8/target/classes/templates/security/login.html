@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index :: dynamic(~{:: main})}">
+<main>
+    <form th:action="@{/security/login}" method="post">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                SHOPPING CART LOGIN
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <div>Username: </div>
+                    <input name="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <div>Password: </div>
+                    <input name="password" class="form-control" type="password">
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer text-right">
+            <i class="pull-left text-danger" th:text="${message}"></i>
+            <button class="btn btn-success">LOGIN</button>
+        </div>
+
+    </form>
+</main>
+
+</html>
